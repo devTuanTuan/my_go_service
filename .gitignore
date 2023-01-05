@@ -1,2 +1,5 @@
-./data/mysql
-./logs/mysql
+data/mysql
+
+logs/mysql
+
+.DS_Store
