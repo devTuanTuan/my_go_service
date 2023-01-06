@@ -29,7 +29,7 @@ func main() {
 		Description: "task 1 description",
 		Status:      "Doing",
 		CreatedAt:   &now,
-		// UpdatedAt:   nil,
+		UpdatedAt:   nil,
 	}
 
 	jsData, err := json.Marshal(item)
@@ -38,10 +38,23 @@ func main() {
 		log.Fatalln(err)
 	}
 
+	v1 := r.Group("/v1")
+	{
+		items := v1.Group("/items")
+		{
+			items.POST("")
+			items.GET("")
+			items.GET("/:id")
+			items.PATCH("/:id")
+			items.DELETE("/:id")
+		}
+	}
+
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": string(jsData),
 		})
 	})
+
 	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
