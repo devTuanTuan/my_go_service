@@ -10,4 +10,10 @@ Install Docker & Docker Compose then use the command:
 docker-compose up
 ```
 
+After that, open browser and check the service through port 8000
+
+```bash
+http://localhost:8000/ping
+```
+
 Voila!!!
