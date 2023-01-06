@@ -3,3 +3,5 @@ data/mysql
 logs/mysql
 
 .DS_Store
+
+src/tmp
